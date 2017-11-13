@@ -13,7 +13,15 @@ class HomeController extends Controller {
 	 */
 
 	public function login() {
+		if (Auth::check()) {
+			return redirect()->back();
+		} else {
+			return view('admin/login');
+		}
 
+	}
+	public function logout() {
+		Auth::logout();
 		return view('admin/login');
 
 	}

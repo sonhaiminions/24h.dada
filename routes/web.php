@@ -22,8 +22,10 @@ Route::get('new23', function () {
 	}
 
 });
+Route::get('/', 'HomeController@login');
 
 Route::get('login', 'HomeController@login');
+Route::get('logout', 'HomeController@logout');
 Route::post('postlogin', 'HomeController@postlogin');
 Route::group(["prefix" => "admin", 'middleware' => 'AdminLogin'], function () {
 
