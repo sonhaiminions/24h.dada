@@ -14,6 +14,9 @@ class UserController extends Controller {
 	public function add() {
 		return view('admin/user/add');
 	}
+	public function viewadd() {
+		return view('add');
+	}
 	public function search(request $request) {
 		$a = '%' . $request->search . '%';
 

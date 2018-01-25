@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 class NewsController extends Controller {
 	public function list() {
 		$new = News::all();
-		return view('admin/news/list', ['new' => $new]);
+
+		$collection = collect($new);
+		$chunk = $collection->take(3);
+		return view('admin/news/list', ['new' => $chunk]);
 	}
 	public function search(request $request) {
 		$a = '%' . $request->search . '%';
@@ -40,7 +43,7 @@ class NewsController extends Controller {
 				'txtcontent.required' => 'bạn chưa nhập nội dung !',
 				'txtimg.required' => 'chuwa nhap file !',
 				'txtimg.required' => 'file anh da ton tai !',
-				// 'txtimg.image' => 'file nhập phải là file ảnh !',
+				'txtimg.image' => 'file nhập phải là file ảnh !',
 			]);
 		$new = new News;
 		$new->title = $request->txttitle;
@@ -48,7 +51,7 @@ class NewsController extends Controller {
 		$new->content = $request->txtcontent;
 		$file = $request->file('txtimg');
 		if ($file->getClientOriginalExtension() == 'jpg' || $file->getClientOriginalExtension() == 'png') {
-			$file->move('img', $file->getclientoriginalname());
+			$file->move('img', str_random(5) . '.' . $file->getClientOriginalExtension());
 			$new->img = $file->getclientoriginalname();
 			$new->save();
 			return redirect('admin/news/add')->with('thongbao', 'thêm thành công');

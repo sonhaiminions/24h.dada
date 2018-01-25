@@ -1,0 +1,37 @@
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto" *ngFor="let newss of newsss">
+      <div class="post-preview" [hidden]="!(idd==newss.id_cat)" >
+      <!--<div class="post-preview" [hidden]="idd === 0 ? false :!(idd==newss.id_cat)">-->
+        <a routerLink="/detailnew/{{newss.id}}">
+          <h2 class="post-title">
+            {{newss.title}}
+          </h2>
+          <h3 class="post-subtitle" >
+            <span [innerHTML]='newss.content' ></span>
+
+          </h3>
+        </a>
+        <p class="post-meta" *ngFor="let cate3 of cate2" [hidden]="!(cate3.id===newss.id_cat)" >Posted in <a>{{cate3.name}}</a>
+          <!--<a href="#"> {{cate1.name}}</a>-->
+          on September 24, 2017</p>
+
+      </div>
+
+
+      <!-- Pager -->
+
+    </div>
+  </div>
+
+  <div class="clearfix">
+    <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+  </div>
+</div>
+
+<hr>
+
+<!-- Footer -->
+

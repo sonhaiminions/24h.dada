@@ -22,8 +22,9 @@ Route::get('new23', function () {
 	}
 
 });
+Route::get('adduser', 'UserController@viewadd');
 Route::get('/', 'HomeController@login');
-
+// route::get('angu', 'AnguController@test12');
 Route::get('login', 'HomeController@login');
 Route::get('logout', 'HomeController@logout');
 Route::post('postlogin', 'HomeController@postlogin');

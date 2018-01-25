@@ -14,7 +14,7 @@ class HomeController extends Controller {
 
 	public function login() {
 		if (Auth::check()) {
-			return redirect()->back();
+			return redirect('admin/news/list');
 		} else {
 			return view('admin/login');
 		}
