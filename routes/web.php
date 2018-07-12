@@ -10,20 +10,26 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
+Route::get('postman', ['uses' => 'HomeController@postman']);
 
 Route::get('new23', function () {
-	// $new = App\News::where('id', 1)->get();
-	// $new = App\News::take(1)->get();
-	$new = App\Category::find(2)->TinTuc;
-	// var_dump($new);
-	// echo $new->title;
-	foreach ($new as $key) {
-		echo $key->title;
-	}
+	 $new = App\Category::where('id', 2)->with('TinTuc')->get();
+foreach ($new as $key3=>$value){
+    echo $value->name;
+    foreach ($value->TinTuc as $key2=>$key){
+        dump($key->content);
+    }
+}
 
 });
+Route::get('testload',function (){
+   $a = App\Category::find(2);
+    dd($a);
+});
+Route::get('taosession','HomeController@taosession');
+Route::get('xoasession','HomeController@xoasession');
+Route::get('testsession','HomeController@testsession');
 Route::get('/', 'HomeController@login');
-
 Route::get('login', 'HomeController@login');
 Route::get('logout', 'HomeController@logout');
 Route::post('postlogin', 'HomeController@postlogin');

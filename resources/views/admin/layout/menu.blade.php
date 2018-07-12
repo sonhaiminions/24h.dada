@@ -5,10 +5,8 @@
         <ul class="nav" id="side-menu">
             <li class="sidebar-search">
 
-                @if(isset($user))
 
-                <div class="alert-dismissable" style="font:ultra-expanded;" >Welcome Back :<span style="color: #f211de;">{{$user->name}}</span></div>
-                @endif
+                <div class="alert-dismissable" style="font:ultra-expanded;" >Welcome Back :<span style="color: #f211de;">{{Auth::user()->name}}</span></div>
             </li>
             <li>
                 <a href="#"><i class="fa fa-dashboard fa-fw"></i> Menu</a>

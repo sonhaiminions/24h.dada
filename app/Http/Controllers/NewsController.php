@@ -39,7 +39,6 @@ class NewsController extends Controller {
 
 				'txtcontent.required' => 'bạn chưa nhập nội dung !',
 				'txtimg.required' => 'chuwa nhap file !',
-				'txtimg.required' => 'file anh da ton tai !',
 				// 'txtimg.image' => 'file nhập phải là file ảnh !',
 			]);
 		$new = new News;
